@@ -1,4 +1,4 @@
-"""
+﻿"""
 YouTube Upload Script - Updated for 2025
 
 Uses refresh token from GitHub Secrets to upload videos.
@@ -118,7 +118,7 @@ def main():
         return
     
     # Simple test metadata
-    title = "Malia Thornton Daily"
+    title = "Maliya Thornton Daily"
     description = "#shorts #fitness #strengthtraining #gym"
     tags = ['fitness', 'strengthtraining', 'gym']
     

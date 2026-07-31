@@ -1,4 +1,4 @@
-"""
+﻿"""
 Facebook Reels Upload
 
 Facebook Graph API for uploading Reels to Facebook Page.
@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 env_path = Path(__file__).parent.parent / '.env'
 load_dotenv(dotenv_path=env_path, override=True)
 
-def upload_to_facebook(video_path, description, title="Malia Thornton"):
+def upload_to_facebook(video_path, description, title="Maliya Thornton"):
     """
     Upload video to Facebook Page as a Reel.
     
