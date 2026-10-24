@@ -17,7 +17,7 @@ permissions:
 jobs:
   publish-videos:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Prevent hanging
+    timeout-minutes: 60  # Prevent hanging
     
     steps:
       - name: Checkout repository
@@ -29,10 +29,16 @@ jobs:
           python-version: '3.11'
           cache: 'pip'  # Cache pip dependencies for faster runs
       
-      - name: Install FFmpeg
+      - name: Set up FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: release
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify FFmpeg
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          ffmpeg -version
+          ffprobe -version
       
       - name: Install dependencies
         run: |
