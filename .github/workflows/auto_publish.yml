@@ -158,8 +158,10 @@ jobs:
           # Only commit if there are changes
           if ! git diff --staged --quiet; then
             git commit -m "Update published videos log [skip ci]"
-            git pull --rebase
-            git push
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main || (git rebase --abort 2>/dev/null || true)
+              git push origin main && break || sleep 5
+            done
             echo "✅ Committed and pushed published_videos.json"
           else
             echo "ℹ️ No changes to commit"
